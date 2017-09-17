@@ -1,5 +1,5 @@
 # third-party imports
-from flask import Flask,render_template
+from flask import Flask, render_template
 from flask import abort
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager

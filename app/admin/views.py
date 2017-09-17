@@ -1,10 +1,11 @@
-from flask import abort,flash,redirect,render_template,url_for
-from flask_login import current_user,login_required
+from flask import abort, flash, redirect, render_template, url_for
+from flask_login import current_user, login_required
 
 from . import admin
-from forms import DepartmentForm,RoleForm,EmployeeAssignForm
+from forms import DepartmentForm, RoleForm, EmployeeAssignForm
 from .. import db
-from ..models import Department,Role,Employee
+from ..models import Department, Role, Employee
+
 
 def check_admin():
     """
@@ -14,8 +15,9 @@ def check_admin():
     if not current_user.is_admin:
         abort(403)
 
-#Departments View
-@admin.route('/departments',methods=['GET','POST'])
+
+# Departments View
+@admin.route('/departments', methods=['GET', 'POST'])
 @login_required
 def list_departments():
     """
@@ -25,9 +27,10 @@ def list_departments():
 
     departments = Department.query.all()
 
-    return render_template('admin/departments/departments.html',departments=departments,title='Departments')
+    return render_template('admin/departments/departments.html', departments=departments, title='Departments')
 
-@admin.route('/departments/add',methods=['GET','POST'])
+
+@admin.route('/departments/add', methods=['GET', 'POST'])
 @login_required
 def add_department():
     """
@@ -41,7 +44,7 @@ def add_department():
     form = DepartmentForm()
     if form.validate_on_submit():
         department = Department(name=form.name.data,
-                                description = form.description.data)
+                                description=form.description.data)
         try:
             db.session.add(department)
             db.session.commit()
@@ -54,6 +57,7 @@ def add_department():
     return render_template('admin/departments/department.html', action="Add",
                            add_department=add_department, form=form,
                            title="Add Department")
+
 
 @admin.route('/departments/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -101,6 +105,7 @@ def delete_department(id):
 
     return render_template(title="Delete Department")
 
+
 # Role Views
 
 @admin.route('/roles')
@@ -113,6 +118,7 @@ def list_roles():
     roles = Role.query.all()
     return render_template('admin/roles/roles.html',
                            roles=roles, title='Roles')
+
 
 @admin.route('/roles/add', methods=['GET', 'POST'])
 @login_required
@@ -145,6 +151,7 @@ def add_role():
     return render_template('admin/roles/role.html', add_role=add_role,
                            form=form, title='Add Role')
 
+
 @admin.route('/roles/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
 def edit_role(id):
@@ -171,6 +178,7 @@ def edit_role(id):
     form.name.data = role.name
     return render_template('admin/roles/role.html', add_role=add_role,
                            form=form, title="Edit Role")
+
 
 @admin.route('/roles/delete/<int:id>', methods=['GET', 'POST'])
 @login_required

@@ -1,17 +1,28 @@
-#Enable Flask's debugging mode
+# Enable Flask's debugging mode
+
 
 class Config(object):
-    pass
-   #radnom
+    DEBUG = True
+
 
 class DevelopmentConfig(Config):
-    DEBUG = True
     SQLALCHEMY_ECHO = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
 class ProductionConfig(Config):
     DEBUG = False
 
+
+class TestingConfig(Config):
+    """
+    Testing configurations
+    """
+    TESTING = True
+
+
 app_config = {
-    'development':DevelopmentConfig,
-    'production':ProductionConfig
+    'development': DevelopmentConfig,
+    'production': ProductionConfig,
+    'testing': TestingConfig
 }

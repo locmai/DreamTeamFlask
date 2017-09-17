@@ -1,5 +1,5 @@
-from flask import abort,render_template
-from flask_login import current_user,login_required
+from flask import abort, render_template
+from flask_login import current_user, login_required
 
 from . import home
 
@@ -10,7 +10,7 @@ def homepage():
     Render the homepage template on the "/" route
     :return: rendered page
     """
-    return render_template('home/index.html',title="Welcome to Home")
+    return render_template('home/index.html', title="Welcome to Home")
 
 
 @home.route('/dashboard')
@@ -20,7 +20,7 @@ def dashboard():
     Render the dashboard template on the "/dashboard" route
     :return: rendered page
     """
-    return render_template('home/dashboard.html',title="Dashboard")
+    return render_template('home/dashboard.html', title="Dashboard")
 
 
 @home.route('/admin/dashboard')

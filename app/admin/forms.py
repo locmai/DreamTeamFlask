@@ -4,6 +4,7 @@ from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms.validators import DataRequired
 from ..models import Department, Role
 
+
 class DepartmentForm(FlaskForm):
     """
     Form for admin to add or edit a department
