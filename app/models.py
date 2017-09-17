@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash,check_password_hash
 
 from app import db,login_manager
 
+
 class Employee(UserMixin,db.Model):
     """
     Create and Employee table
@@ -53,6 +54,7 @@ class Employee(UserMixin,db.Model):
 def load_user(user_id):
     return Employee.query.get(int(user_id))
 
+
 class Department(db.Model):
     """
     Create a Department table
@@ -67,6 +69,7 @@ class Department(db.Model):
                                 lazy='dynamic')
     def __repr__(self):
         return '<Department: {}>'.format(self.name)
+
 
 class Role(db.Model):
     """
