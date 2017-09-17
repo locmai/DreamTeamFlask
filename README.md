@@ -1,6 +1,6 @@
 # Dream Team Flask
 
-Simple Flask Application. Includes Unit Test Module and Selenium for UI Automation.
+Simple Flask CRUD Application. Includes Unit Test Module and Selenium for UI Automation.
 
 ## Getting Started
 
@@ -38,9 +38,10 @@ flask run
 
 ## Running the Unit Tests
 
-tests.py is a sample for unit test the models,views and error handlers
+Change directory to 'tests', use nose2 command for running all the python files' name started with 'test'
 ```
-python tests.py
+cd tests
+nose2
 ```
 
 ## Coding Conventions
@@ -53,6 +54,7 @@ Deployment note about how to deploy this app on live system: **TBD**
 
 ## To-Do
 
-* Update Selenium Demo for UI Automation.
-* Reformat the code follow Python coding style and conventions.
+* Update Selenium Demo for UI Automation. - Finished Setup for Test.
+* Reformat the code follow Python coding style and conventions. - **Done**
+* Update Procfile and setup for Heroku deployment.
 * Update this file after finished all the above tasks.
