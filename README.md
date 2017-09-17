@@ -1,8 +1,3 @@
-#Dream Team - Flask Training
-
-export FLASK_CONFIG=development
-$ export FLASK_APP=run.py
-
 # Dream Team Flask
 
 Simple Flask Application. Includes Unit Test Module and Selenium for UI Automation.
@@ -43,7 +38,7 @@ flask run
 
 ## Running the Unit Tests
 
-tests.py is a sample for unit test the models,
+tests.py is a sample for unit test the models,views and error handlers
 ```
 python tests.py
 ```
@@ -56,3 +51,8 @@ Following the PEP8 Coding Style.
 
 Deployment note about how to deploy this app on live system: **TBD**
 
+## To-Do
+
+* Update Selenium Demo for UI Automation.
+* Reformat the code follow Python coding style and conventions.
+* Update this file after finished all the above tasks.
